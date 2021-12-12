@@ -18,20 +18,26 @@ exports.LogInAuth = async (email, password) => {
       try {
        const items = await (await coll.find({ "email": email })).toArray()
        console.log("Items: ");
-        for (i = 0; i < items.length; i++) {
-          console.log(i + ": " + items[i].fname + " by: " + items[i].lname);
-          console.log("Print here : " + name);
-          var hash = crypto.createHash('md5').update(items[i].salt + password).digest('hex');
-          console.log(hash);
-          if (hash == items[i].password) {
-            // console.log("yaaaas we made it");
-            name = items[i].email.toString();
-            await collc.updateOne({ "current" : "current" }, {$set: {"email" : items[i].email.toString()}});
-          } else {
-            name = "FAILURE";
-            await collc.updateOne({ "current" : "current" }, {$set: {"email" : "FAILURE"}});
-          }
-        }
+       if (items.length == 0) {
+           name = "FAILURE";
+           await collc.updateOne({ "current" : "current" }, {$set: {"email" : "FAILURE"}});
+       } else {
+           for (i = 0; i < items.length; i++) {
+             console.log(i + ": " + items[i].fname + " by: " + items[i].lname);
+             console.log("Print here : " + name);
+             var hash = crypto.createHash('md5').update(items[i].salt + password).digest('hex');
+             console.log(hash);
+             if (hash == items[i].password) {
+               // console.log("yaaaas we made it");
+               name = items[i].email.toString();
+               await collc.updateOne({ "current" : "current" }, {$set: {"email" : items[i].email.toString()}});
+             } else {
+               name = "FAILURE";
+               await collc.updateOne({ "current" : "current" }, {$set: {"email" : "FAILURE"}});
+             }
+           }
+       }
+        
       } catch (e) {
         return reject(e)
       }
