@@ -80,8 +80,8 @@ console.log("HERE");
    // when complete POST data is received
    req.on('end', async () => {
 	   pdata = qs.parse(pdata);
-	   // res.write ("The email is: " + pdata['email'] + "<br>");
-	   // res.write ("The password is: " + pdata['password'] + "<br>");
+	   res.write ("The email is: " + pdata['email'] + "<br>");
+	   res.write ("The password is: " + pdata['password'] + "<br>");
 	   const data = await exports.LogInAuth(pdata['email'], pdata['password']);
 	   res.writeHead(200, {'Content-Type':'text/html'});
 		res.write("<!DOCTYPE html><html lang='en'><head><script src='https://code.jquery.com/jquery-3.6.0.min.js' integrity='sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=' crossorigin='anonymous'>");
