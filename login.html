@@ -78,7 +78,7 @@
           </nav>
 
           <div class="burger" id = "bur">
-              <img src="burger.png" class="burger" onclick="show()">
+              <img src="https://ajmiller00.github.io/Midterm/burger.png" class="burger" onclick="show()">
           </div>
 
           <div class="oBurger" id = "burger">
@@ -95,6 +95,17 @@
               </ul>
           </div>
       </header>
+    
+    <script language='javascript'>
+    
+    function show() {
+            if (document.getElementById("burger").style.display == "none") {
+                document.getElementById("burger").style.display = "block";
+            } else {
+                document.getElementById("burger").style.display = "none";
+            }
+        }
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
