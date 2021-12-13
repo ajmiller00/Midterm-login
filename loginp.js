@@ -117,8 +117,7 @@ console.log("HERE");
 		res.write("<li><a class = 'burger' href='https://ajmiller00.github.io/Midterm/workshops_events.html'>Events</a> </li><li><a href='https://ajmiller00.github.io/Midterm/contact.html' >Contact Us</a> </li>");
 		res.write("<li></li><li></li><li><a class = 'burger' href='https://reveauchocolat-cart.herokuapp.com/'>My Cart</a></li></ul></div></header>");
 		res.write("<body>");
-	   	res.write ("The email is: " + pdata['email'] + "<br>");
-	   	res.write ("The password is: " + pdata['password'] + "<br>");
+	   
 	   if (data != "FAILURE") {
 		   res.write("<div id = 'add'> <br><br><br> Successful Log In! <br><br><br><br><br><br>");
 		   res.write("</div>");
