@@ -96,19 +96,22 @@
           </div>
       </header>
 
-        <script type="text/javascript">
-        function show() {
-            if (document.getElementById("burger").style.display == "none") {
-                document.getElementById("burger").style.display = "block";
-            } else {
-                document.getElementById("burger").style.display = "none";
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+    <script type="text/javascript">
+        function validation() {
+            if (document.getElementById("password").value != "" && document.getElementById("email").value != "") {
+                return true;
             }
+            alert("Please fill all indicated fields!");
+            return false;
         }
-        </script>
+
+    </script>
     <div id = "login">
         <!-- header here -->
         <h1>Login</h1>
-        <form onclick = "dosomething">
+        <form method ='post'  action='/login' onsubmit="return validation()">
             <div class = "input_row">
                 <label>Email </label>
                 <br>
